@@ -1,7 +1,21 @@
-import { Avatar as AntdAvatar } from 'antd'
-const CustomAvatar = () => {
+import { Avatar as AntdAvatar, AvatarProps } from 'antd'
+
+type Props = AvatarProps & {
+    name: string;
+}
+
+const CustomAvatar = ({ name, style, ...rest}: Props) => {
   return (
-   <AntdAvatar>
+   <AntdAvatar
+    alt={'Kenny Olo'}
+    size="small"
+    style={{ 
+        backgroundColor: '#87d068 ',
+        display: 'flex',
+        alignItems: 'center',
+        border: 'none',
+    }}
+   >
     KO
    </AntdAvatar>
   )
