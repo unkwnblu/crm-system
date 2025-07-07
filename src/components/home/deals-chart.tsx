@@ -1,6 +1,6 @@
 import { DollarOutlined } from "@ant-design/icons"
 import { Card } from "antd"
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Text } from "../text"
 import { Area, AreaConfig } from '@ant-design/plots'
 import { useList } from "@refinedev/core"
@@ -13,6 +13,11 @@ const DealsChart = () => {
   const { data } = useList<GetFieldsFromList<DashboardDealsChartQuery>>
   ({
     resource: 'dealStages',
+    filters: [
+      {
+        field: 'title', operator: 'in', value: ['WON', 'LOST']
+      }
+    ],
     meta: {
       gqlQuery: DASHBOARD_DEALS_CHART_QUERY
     }
@@ -44,9 +49,9 @@ const DealsChart = () => {
     },
     tooltip: {
       formatter: (data) => {
-        return {
+        return { 
             name:data.state,
-            value: `$${Number(data.value) / 1000}k)}`
+            value: `$${Number(data.value) / 1000}k`
           
         }
       }
