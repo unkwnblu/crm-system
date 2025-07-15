@@ -27,8 +27,7 @@ import { UPDATE_TASK_MUTATION } from "@/graphql/mutations";
 
 const TasksEditPage = () => {
   const [activeKey, setActiveKey] = useState<string | undefined>();
-
-  const { list } = useNavigation();
+ const { list } = useNavigation();
 
   const { modalProps, close, queryResult } = useModalForm<Task>({
     action: "edit",
@@ -63,10 +62,10 @@ const TasksEditPage = () => {
         </DeleteButton>
       }
     >
-      {}
+      {/* Render the stage form */}
       <StageForm isLoading={isLoading} />
 
-      {}
+      {/* Render the description form inside an accordion */}
       <Accordion
         accordionKey="description"
         activeKey={activeKey}
@@ -82,7 +81,7 @@ const TasksEditPage = () => {
         />
       </Accordion>
 
-      {}
+      {/* Render the due date form inside an accordion */}
       <Accordion
         accordionKey="due-date"
         activeKey={activeKey}
@@ -98,7 +97,7 @@ const TasksEditPage = () => {
         />
       </Accordion>
 
-      {}
+      {/* Render the users form inside an accordion */}
       <Accordion
         accordionKey="users"
         activeKey={activeKey}
